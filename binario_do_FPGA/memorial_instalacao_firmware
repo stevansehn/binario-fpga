@@ -1,0 +1,134 @@
+stevan@administrador-OptiPlex-760:~/Documents/projeto$ cd
+stevan@administrador-OptiPlex-760:~$ cd gnuradio/
+stevan@administrador-OptiPlex-760:~/gnuradio$ cd binario_do_FPGA/
+stevan@administrador-OptiPlex-760:~/gnuradio/binario_do_FPGA$ subl flash_fpga.sh
+stevan@administrador-OptiPlex-760:~/gnuradio/binario_do_FPGA$ uhd_
+uhd_cal_rx_iq_balance  uhd_config_info        uhd_image_loader       uhd_rx_nogui           uhd_usrp_probe
+uhd_cal_tx_dc_offset   uhd_fft                uhd_images_downloader  uhd_siggen             
+uhd_cal_tx_iq_balance  uhd_find_devices       uhd_rx_cfile           uhd_siggen_gui         
+stevan@administrador-OptiPlex-760:~/gnuradio/binario_do_FPGA$ uhd_image_loader 
+Error: RuntimeError: You must specify a device type.
+stevan@administrador-OptiPlex-760:~/gnuradio/binario_do_FPGA$ uhd_image_loader --help
+UHD Image Loader
+
+Load firmware and/or FPGA images onto an Ettus Research device.
+
+Allowed options:
+  --help                help message
+  --args arg            Device args, optional loader args
+  --fw-path arg         Firmware path (uses default if none specified)
+  --fpga-path arg       FPGA path (uses default if none specified)
+  --out-path arg        Output path/filename of the downloaded FPGA .bit file
+  --no-fw               Don't burn firmware
+  --no-fpga             Don't Burn FPGA
+  --download            Download an image to a bit/bin file
+
+stevan@administrador-OptiPlex-760:~/gnuradio/binario_do_FPGA$ uhd_image_loader --args="type=usrp2"
+[INFO] [UHD] linux; GNU C++ version 5.4.0 20160609; Boost_105800; UHD_3.14.0.linse-66-g14a2e353
+No applicable UHD devices found
+stevan@administrador-OptiPlex-760:~/gnuradio/binario_do_FPGA$ ls
+flash_fpga.sh  u2plus.bin
+stevan@administrador-OptiPlex-760:~/gnuradio/binario_do_FPGA$ ls -lh
+total 1,5M
+-rw-rw-r-- 1 stevan stevan   73 Out 10 14:35 flash_fpga.sh
+-rw-rw-r-- 1 stevan stevan 1,4M Out 10 14:32 u2plus.bin
+stevan@administrador-OptiPlex-760:~/gnuradio/binario_do_FPGA$ chmod +x flash_fpga.sh 
+stevan@administrador-OptiPlex-760:~/gnuradio/binario_do_FPGA$ ls
+flash_fpga.sh  u2plus.bin
+stevan@administrador-OptiPlex-760:~/gnuradio/binario_do_FPGA$ ls -lh
+total 1,5M
+-rwxrwxr-x 1 stevan stevan   73 Out 10 14:35 flash_fpga.sh
+-rw-rw-r-- 1 stevan stevan 1,4M Out 10 14:32 u2plus.bin
+stevan@administrador-OptiPlex-760:~/gnuradio/binario_do_FPGA$ uhd_images_downloader 
+[INFO] Images destination: /usr/local/share/uhd/images
+00006 kB / 00006 kB (100%) usrp1_b100_fw_default-g6bea23d.zip
+[ERROR] Downloader raised an unhandled exception: [Errno 13] Permission denied: '/usr/local/share/uhd/images/usrp_b100_fw.ihx'
+You can run this again with the '--verbose' flag to see more information
+If the problem persists, please email the output to: support@ettus.com
+stevan@administrador-OptiPlex-760:~/gnuradio/binario_do_FPGA$ sudo \uhd_images_downloader 
+[sudo] password for stevan: 
+[INFO] Images destination: /usr/local/share/uhd/images
+00006 kB / 00006 kB (100%) usrp1_b100_fw_default-g6bea23d.zip
+16160 kB / 16160 kB (100%) n3xx_n310_fpga_default-gc398755.zip
+02757 kB / 02757 kB (100%) usrp2_n210_fpga_default-g6bea23d.zip
+02032 kB / 02032 kB (100%) n230_n230_fpga_default-g4bb66b3.zip
+00522 kB / 00522 kB (100%) usrp1_b100_fpga_default-g6bea23d.zip
+00511 kB / 00511 kB (100%) b2xx_b200_fpga_default-g63e630a.zip
+02415 kB / 02415 kB (100%) usrp2_n200_fpga_default-g6bea23d.zip
+19857 kB / 19857 kB (100%) x3xx_x310_fpga_default-gc398755.zip
+00503 kB / 00503 kB (100%) b2xx_b205mini_fpga_default-g63e630a.zip
+18901 kB / 18901 kB (100%) x3xx_x300_fpga_default-gc398755.zip
+00017 kB / 00017 kB (100%) octoclock_octoclock_fw_default-g14000041.zip
+04839 kB / 04839 kB (100%) usb_common_windrv_default-g14000041.zip
+00007 kB / 00007 kB (100%) usrp2_usrp2_fw_default-g6bea23d.zip
+00009 kB / 00009 kB (100%) usrp2_n200_fw_default-g6bea23d.zip
+00450 kB / 00450 kB (100%) usrp2_usrp2_fpga_default-g6bea23d.zip
+00149 kB / 00149 kB (100%) b2xx_common_fw_default-g455a288.zip
+00460 kB / 00460 kB (100%) b2xx_b200mini_fpga_default-g63e630a.zip
+00319 kB / 00319 kB (100%) usrp1_usrp1_fpga_default-g6bea23d.zip
+00009 kB / 00009 kB (100%) usrp2_n210_fw_default-g6bea23d.zip
+11654 kB / 11654 kB (100%) n3xx_n300_fpga_default-gc398755.zip
+05445 kB / 05445 kB (100%) e3xx_e310_fpga_default-gc398755.zip
+00894 kB / 00894 kB (100%) b2xx_b210_fpga_default-g63e630a.zip
+[INFO] Images download complete.
+stevan@administrador-OptiPlex-760:~/gnuradio/binario_do_FPGA$ sudo uhd_images_downloader 
+[INFO] Images destination: /usr/local/share/uhd/images
+[INFO] Target usrp1_b100_fw_default is up to date.
+[INFO] Target n3xx_n310_fpga_default is up to date.
+[INFO] Target usrp2_n210_fpga_default is up to date.
+[INFO] Target n230_n230_fpga_default is up to date.
+[INFO] Target usrp1_b100_fpga_default is up to date.
+[INFO] Target b2xx_b200_fpga_default is up to date.
+[INFO] Target usrp2_n200_fpga_default is up to date.
+[INFO] Target x3xx_x310_fpga_default is up to date.
+[INFO] Target b2xx_b205mini_fpga_default is up to date.
+[INFO] Target x3xx_x300_fpga_default is up to date.
+[INFO] Target octoclock_octoclock_fw_default is up to date.
+[INFO] Target usb_common_windrv_default is up to date.
+[INFO] Target usrp2_usrp2_fw_default is up to date.
+[INFO] Target usrp2_n200_fw_default is up to date.
+[INFO] Target usrp2_usrp2_fpga_default is up to date.
+[INFO] Target b2xx_common_fw_default is up to date.
+[INFO] Target b2xx_b200mini_fpga_default is up to date.
+[INFO] Target usrp1_usrp1_fpga_default is up to date.
+[INFO] Target usrp2_n210_fw_default is up to date.
+[INFO] Target n3xx_n300_fpga_default is up to date.
+[INFO] Target e3xx_e310_fpga_default is up to date.
+[INFO] Target b2xx_b210_fpga_default is up to date.
+stevan@administrador-OptiPlex-760:~/gnuradio/binario_do_FPGA$ ./flash_fpga.sh 
+./flash_fpga.sh: line 1: !#/bin/bash: No such file or directory
+[INFO] [UHD] linux; GNU C++ version 5.4.0 20160609; Boost_105800; UHD_3.14.0.linse-66-g14a2e353
+Unit: USRP N210 r4 (F33206, 192.168.10.2)
+Firmware image: /usr/local/share/uhd/images/usrp_n210_fw.bin
+-- Erasing firmware image...successful.
+-- Writing firmware image...successful.
+-- Verifying firmware image...successful.
+FPGA image: /home/stevan/gnuradio/binario_do_FPGA/u2plus.bin
+-- Erasing FPGA image...successful.
+-- Writing FPGA image...successful.
+-- Verifying FPGA image...successful.
+stevan@administrador-OptiPlex-760:~/gnuradio/binario_do_FPGA$ 
+
+!#/bin/bash
+
+# flash fpga modificado
+# uhd_image_loader --args="type=usrp2" --fpga-path=u2plus.bin
+
+# flash fgpa original
+uhd_image_loader --args="type=usrp2"
+
+
+# TIRAR O CABO PARA RESETAR A PLACA DEPOIS DE EXECUTAR O COMANDO, exemplo de output:
+# stevan@administrador-OptiPlex-760:~/gnuradio/binario_do_FPGA$ ./flash_fpga.sh 
+# [INFO] [UHD] linux; GNU C++ version 5.4.0 20160609; Boost_105800; UHD_3.14.0.linse-66-g14a2e353
+# Unit: USRP N210 r4 (F33206, 192.168.10.2)
+# Firmware image: /usr/local/share/uhd/images/usrp_n210_fw.bin
+# -- Erasing firmware image...successful.
+# -- Writing firmware image...successful.
+# -- Verifying firmware image...successful.
+# FPGA image: /home/stevan/gnuradio/binario_do_FPGA/u2plus.bin
+# -- Erasing FPGA image...successful.
+# -- Writing FPGA image...successful.
+# -- Verifying FPGA image...successful.
+
+
